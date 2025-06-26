@@ -21,17 +21,16 @@ const config = {
 		adapter: adapter({ 
 			pages: 'build', 
 			assets: 'build',
-			fallback: undefined, // Use SPA fallback instead
+			fallback: undefined,
 			strict: false
 		}),
-		base: base,
 		paths: {
 			base: base
 		},
 		prerender: {
 			entries: [
-				...SUPPORT_LOCALE.map((locale) => PAGES.map((page) => `/${locale}${page}`)).flat(),
-				'/'
+				'/',
+				...SUPPORT_LOCALE.map((locale) => `/${locale}/`)
 			],
 			handleHttpError: 'warn'
 		},
