@@ -25,7 +25,7 @@ const config = {
 		}),
 		paths: {
 			base: base,
-			assets: base
+			assets: dev ? '' : 'https://jaythedragon.github.io/furfectstudio-web'
 		},
 		prerender: {
 			entries: [
