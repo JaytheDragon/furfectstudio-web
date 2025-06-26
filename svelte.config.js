@@ -4,10 +4,6 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 const SUPPORT_LOCALE = ['ko', 'en', 'ja', 'zh'];
 const PAGES = ['/'];
 
-// GitHub Pages configuration
-const dev = process.argv.includes('dev');
-const base = dev ? '' : process.env.BASE_PATH || '/furfectstudio-web';
-
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://svelte.dev/docs/kit/integrations
@@ -21,12 +17,9 @@ const config = {
 		adapter: adapter({ 
 			pages: 'build', 
 			assets: 'build',
-			fallback: undefined,
+			fallback: '404.html',
 			strict: false
 		}),
-		paths: {
-			base: base
-		},
 		prerender: {
 			entries: [
 				'/',
