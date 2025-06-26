@@ -5,5 +5,23 @@
 	"img_alt": {
 		"header_logo": "퍼펙트 스튜디오 공식 로고입니다.",
 		"main_background": "메인 페이지의 뒷 배경입니다."
+	},
+	"pages": {
+		"game": {
+			"title": "게임",
+			"description": "퍼펙트 스튜디오의 최신 게임들을 만나보세요."
+		},
+		"aboutus": {
+			"title": "회사 소개",
+			"description": "우리는 혁신적인 게임 경험을 만드는 크리에이티브 스튜디오입니다."
+		},
+		"contact": {
+			"title": "연락처",
+			"description": "언제든지 연락주세요. 여러분의 의견을 기다리고 있습니다."
+		},
+		"support": {
+			"title": "지원",
+			"description": "도움이 필요하신가요? 우리의 지원팀이 도와드리겠습니다."
+		}
 	}
 }

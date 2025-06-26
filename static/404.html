@@ -5,16 +5,23 @@
 		<title>Redirecting...</title>
 		<script type="text/javascript">
 			// GitHub Pages 404 redirect for SPA routing
-			var pathSegmentsToKeep = 1;
 			var l = window.location;
+			var path = l.pathname;
 			
-			l.replace(
-				l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-				l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + 
-				'/?p=' + l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-				(l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-				l.hash
-			);
+			// If we're at the root or a path that doesn't start with a locale,
+			// redirect to the root to let SvelteKit handle language detection
+			if (path === '/' || path === '/index.html') {
+				l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/');
+			} else {
+				// For all other paths, redirect to root with the path as a parameter
+				// This allows SvelteKit to handle the routing
+				l.replace(
+					l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
+					'/?p=' + path.slice(1).replace(/&/g, '~and~') +
+					(l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+					l.hash
+				);
+			}
 		</script>
 	</head>
 	<body></body>

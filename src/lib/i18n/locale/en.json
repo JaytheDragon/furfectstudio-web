@@ -1,6 +1,28 @@
 {
 	"helmet": {
-		"description": "임시 설명 입니다."
+		"description": "Temporary description."
+	},
+	"img_alt": {
+		"header_logo": "Furfect Studio official logo.",
+		"main_background": "Main page background."
+	},
+	"pages": {
+		"game": {
+			"title": "Games",
+			"description": "Discover the latest games from Furfect Studio."
+		},
+		"aboutus": {
+			"title": "About Us",
+			"description": "We are a creative studio that creates innovative gaming experiences."
+		},
+		"contact": {
+			"title": "Contact",
+			"description": "Feel free to contact us anytime. We're waiting for your feedback."
+		},
+		"support": {
+			"title": "Support",
+			"description": "Need help? Our support team is here to assist you."
+		}
 	},
 	"test": "테스트 문자열입니다. (영어)"
 }

@@ -2,7 +2,7 @@ import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 const SUPPORT_LOCALE = ['ko', 'en', 'ja', 'zh'];
-const PAGES = ['/'];
+const PAGES = ['/', '/game', '/aboutus', '/contact', '/support'];
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -23,7 +23,9 @@ const config = {
 		prerender: {
 			entries: [
 				'/',
-				...SUPPORT_LOCALE.map((locale) => `/${locale}/`)
+				...SUPPORT_LOCALE.flatMap((locale) => 
+					PAGES.map((page) => `/${locale}${page === '/' ? '/' : page}`)
+				)
 			],
 			handleHttpError: 'warn'
 		},

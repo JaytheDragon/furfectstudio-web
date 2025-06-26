@@ -1,6 +1,28 @@
 {
 	"helmet": {
-		"description": "임시 설명 입니다."
+		"description": "临时说明。"
 	},
-	"test": "테스트 문자열입니다. (중국어)"
+	"img_alt": {
+		"header_logo": "Furfect Studio 官方标志。",
+		"main_background": "主页背景。"
+	},
+	"pages": {
+		"game": {
+			"title": "游戏",
+			"description": "探索 Furfect Studio 的最新游戏。"
+		},
+		"aboutus": {
+			"title": "关于我们",
+			"description": "我们是一个创造性工作室，致力于创造创新的游戏体验。"
+		},
+		"contact": {
+			"title": "联系我们",
+			"description": "随时联系我们。我们期待您的反馈。"
+		},
+		"support": {
+			"title": "支持",
+			"description": "需要帮助吗？我们的支持团队随时为您提供帮助。"
+		}
+	},
+	"test": "测试字符串。（中文）"
 }
