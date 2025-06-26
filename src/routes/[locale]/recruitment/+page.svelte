@@ -102,18 +102,18 @@
 			<form class="space-y-6">
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 					<div>
-						<label class="block text-sm font-medium mb-2">{$_('pages.recruitment.application.name')}</label>
-						<input type="text" class="w-full p-3 rounded bg-white/10 text-white placeholder-gray-400 border border-gray-600 focus:border-blue-400 focus:outline-none" placeholder={$_('pages.recruitment.application.name_placeholder')} />
+						<label for="applicant-name" class="block text-sm font-medium mb-2">{$_('pages.recruitment.application.name')}</label>
+						<input id="applicant-name" type="text" class="w-full p-3 rounded bg-white/10 text-white placeholder-gray-400 border border-gray-600 focus:border-blue-400 focus:outline-none" placeholder={$_('pages.recruitment.application.name_placeholder')} />
 					</div>
 					<div>
-						<label class="block text-sm font-medium mb-2">{$_('pages.recruitment.application.email')}</label>
-						<input type="email" class="w-full p-3 rounded bg-white/10 text-white placeholder-gray-400 border border-gray-600 focus:border-blue-400 focus:outline-none" placeholder={$_('pages.recruitment.application.email_placeholder')} />
+						<label for="applicant-email" class="block text-sm font-medium mb-2">{$_('pages.recruitment.application.email')}</label>
+						<input id="applicant-email" type="email" class="w-full p-3 rounded bg-white/10 text-white placeholder-gray-400 border border-gray-600 focus:border-blue-400 focus:outline-none" placeholder={$_('pages.recruitment.application.email_placeholder')} />
 					</div>
 				</div>
 				
 				<div>
-					<label class="block text-sm font-medium mb-2">{$_('pages.recruitment.application.position')}</label>
-					<select class="w-full p-3 rounded bg-white/10 text-white border border-gray-600 focus:border-blue-400 focus:outline-none">
+					<label for="applicant-position" class="block text-sm font-medium mb-2">{$_('pages.recruitment.application.position')}</label>
+					<select id="applicant-position" class="w-full p-3 rounded bg-white/10 text-white border border-gray-600 focus:border-blue-400 focus:outline-none">
 						<option value="">{$_('pages.recruitment.application.position_select')}</option>
 						<option value="artist">{$_('pages.recruitment.positions.artist.title')}</option>
 						<option value="programmer">{$_('pages.recruitment.positions.programmer.title')}</option>
@@ -125,18 +125,18 @@
 				</div>
 				
 				<div>
-					<label class="block text-sm font-medium mb-2">{$_('pages.recruitment.application.experience')}</label>
-					<textarea rows="4" class="w-full p-3 rounded bg-white/10 text-white placeholder-gray-400 border border-gray-600 focus:border-blue-400 focus:outline-none" placeholder={$_('pages.recruitment.application.experience_placeholder')}></textarea>
+					<label for="applicant-experience" class="block text-sm font-medium mb-2">{$_('pages.recruitment.application.experience')}</label>
+					<textarea id="applicant-experience" rows="4" class="w-full p-3 rounded bg-white/10 text-white placeholder-gray-400 border border-gray-600 focus:border-blue-400 focus:outline-none" placeholder={$_('pages.recruitment.application.experience_placeholder')}></textarea>
 				</div>
 				
 				<div>
-					<label class="block text-sm font-medium mb-2">{$_('pages.recruitment.application.motivation')}</label>
-					<textarea rows="4" class="w-full p-3 rounded bg-white/10 text-white placeholder-gray-400 border border-gray-600 focus:border-blue-400 focus:outline-none" placeholder={$_('pages.recruitment.application.motivation_placeholder')}></textarea>
+					<label for="applicant-motivation" class="block text-sm font-medium mb-2">{$_('pages.recruitment.application.motivation')}</label>
+					<textarea id="applicant-motivation" rows="4" class="w-full p-3 rounded bg-white/10 text-white placeholder-gray-400 border border-gray-600 focus:border-blue-400 focus:outline-none" placeholder={$_('pages.recruitment.application.motivation_placeholder')}></textarea>
 				</div>
 				
 				<div>
-					<label class="block text-sm font-medium mb-2">{$_('pages.recruitment.application.portfolio')}</label>
-					<input type="url" class="w-full p-3 rounded bg-white/10 text-white placeholder-gray-400 border border-gray-600 focus:border-blue-400 focus:outline-none" placeholder={$_('pages.recruitment.application.portfolio_placeholder')} />
+					<label for="applicant-portfolio" class="block text-sm font-medium mb-2">{$_('pages.recruitment.application.portfolio')}</label>
+					<input id="applicant-portfolio" type="url" class="w-full p-3 rounded bg-white/10 text-white placeholder-gray-400 border border-gray-600 focus:border-blue-400 focus:outline-none" placeholder={$_('pages.recruitment.application.portfolio_placeholder')} />
 				</div>
 				
 				<button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-lg font-semibold text-lg transition-colors">

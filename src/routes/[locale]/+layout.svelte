@@ -4,10 +4,10 @@
 	import DefaultHeader from '@/components/defaultHeader.svelte';
 
 	export let data;
+	const { locale: paramLocale } = data;
 
-	let paramLocale = data.locale;
 	if (!SUPPORT_LOCALE.includes(paramLocale)) {
-		applyAction({ type: 'error', error: { message: 'unsupport language' } });
+		applyAction({ type: 'error', error: { message: 'unsupported language' } });
 	}
 </script>
 
