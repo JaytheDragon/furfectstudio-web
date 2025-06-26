@@ -30,9 +30,30 @@ const config = {
 		prerender: {
 			entries: [
 				'/',
-				...SUPPORT_LOCALE.flatMap((locale) => 
-					PAGES.map((page) => `/${locale}${page === '/' ? '/' : page}`)
-				)
+				'/ko/',
+				'/en/',
+				'/ja/',
+				'/zh/',
+				'/ko/game/',
+				'/en/game/',
+				'/ja/game/',
+				'/zh/game/',
+				'/ko/aboutus/',
+				'/en/aboutus/',
+				'/ja/aboutus/',
+				'/zh/aboutus/',
+				'/ko/contact/',
+				'/en/contact/',
+				'/ja/contact/',
+				'/zh/contact/',
+				'/ko/sponsorship/',
+				'/en/sponsorship/',
+				'/ja/sponsorship/',
+				'/zh/sponsorship/',
+				'/ko/recruitment/',
+				'/en/recruitment/',
+				'/ja/recruitment/',
+				'/zh/recruitment/'
 			],
 			handleHttpError: 'warn'
 		},
