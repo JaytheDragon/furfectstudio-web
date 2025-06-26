@@ -1,3 +1,7 @@
+// Temporarily disabled to avoid conflicts with root page redirects
+// Multiple redirect mechanisms can cause issues with GitHub Pages
+
+/*
 import { browser } from '$app/environment';
 import { SUPPORT_LOCALE } from '@/consonant';
 import { redirect } from '@sveltejs/kit';
@@ -13,3 +17,4 @@ export const load = async ({ url }) => {
 	const path = url.pathname === '/' ? '' : url.pathname.replace(/\/$/, '');
 	throw redirect(303, `/${currentLocale}${path.startsWith('/') ? '' : '/'}${path}`);
 };
+*/

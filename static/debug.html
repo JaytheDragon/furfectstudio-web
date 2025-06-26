@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug - Static Files Working</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+    </style>
+</head>
+<body>
+    <h1>🔍 GitHub Pages Debug Status</h1>
+    
+    <div class="status success">
+        ✅ Static files are working correctly!
+    </div>
+    
+    <div class="status info">
+        📍 Current URL: <span id="current-url"></span>
+    </div>
+    
+    <h2>Test Links:</h2>
+    <ul>
+        <li><a href="/">Root (should redirect to language)</a></li>
+        <li><a href="/ko/">Korean Home</a></li>
+        <li><a href="/en/">English Home</a></li>
+        <li><a href="/ja/">Japanese Home</a></li>
+        <li><a href="/zh/">Chinese Home</a></li>
+    </ul>
+    
+    <h2>Navigation Pages:</h2>
+    <ul>
+        <li><a href="/ko/game">Korean - Game</a></li>
+        <li><a href="/en/game">English - Game</a></li>
+        <li><a href="/ko/aboutus">Korean - About Us</a></li>
+        <li><a href="/en/aboutus">English - About Us</a></li>
+    </ul>
+    
+    <h2>Troubleshooting:</h2>
+    <ol>
+        <li>If you see this page, GitHub Pages is working</li>
+        <li>If SvelteKit pages show 404, there's a routing issue</li>
+        <li>Check: <a href="https://github.com/JaytheDragon/furfectstudio-web/actions" target="_blank">GitHub Actions Status</a></li>
+        <li>Verify: <a href="https://github.com/JaytheDragon/furfectstudio-web/settings/pages" target="_blank">GitHub Pages Settings</a></li>
+    </ol>
+    
+    <script>
+        document.getElementById('current-url').textContent = window.location.href;
+        
+        // Test if we can detect the issue
+        console.log('Debug page loaded successfully');
+        console.log('Current URL:', window.location.href);
+        console.log('User Agent:', navigator.userAgent);
+        console.log('Language:', navigator.language);
+    </script>
+</body>
+</html> 

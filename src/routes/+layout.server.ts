@@ -1,5 +1,9 @@
 export const prerender = true;
 
+// Temporarily disabled to avoid conflicts with client-side routing
+// Server-side redirects can cause issues with GitHub Pages SPA routing
+
+/*
 import { DEFAULT_LOCALE, SUPPORT_LOCALE } from '@/consonant';
 import type { ServerLoad } from '@sveltejs/kit';
 import { redirect } from '@sveltejs/kit';
@@ -16,3 +20,4 @@ export const load: ServerLoad = async ({ url, request }) => {
 	const path = url.pathname === '/' ? '' : url.pathname.replace(/\/$/, '');
 	throw redirect(303, '/' + currentLocale + path);
 };
+*/
