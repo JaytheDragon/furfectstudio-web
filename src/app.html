@@ -31,26 +31,6 @@
 					}
 				}
 			})(window.location);
-
-			// Simple language detection and redirect
-			(function() {
-				var l = window.navigator.language.slice(0, 2);
-				var s = ['ko', 'ja', 'en', 'zh'];
-				var p = window.location.pathname;
-				
-				var pathSegments = p.split('/').filter(Boolean);
-				var firstSegment = pathSegments[0];
-
-				if (!firstSegment) {
-					// Root path - redirect to language
-					var targetLang = s.indexOf(l) !== -1 ? l : 'ko';
-					window.location.replace('/' + targetLang + '/');
-				} else if (s.indexOf(firstSegment) === -1) {
-					// No language in path - add it
-					var targetLang = s.indexOf(l) !== -1 ? l : 'ko';
-					window.location.replace('/' + targetLang + p);
-				}
-			})();
 		</script>
 
 		<div style="display: contents">%sveltekit.body%</div>

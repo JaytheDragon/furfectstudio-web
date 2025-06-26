@@ -24,7 +24,8 @@ const config = {
 			strict: false
 		}),
 		paths: {
-			base: base
+			base: base,
+			assets: base
 		},
 		prerender: {
 			entries: [
