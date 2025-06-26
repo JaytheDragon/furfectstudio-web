@@ -38,6 +38,8 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Build SvelteKit app
+        env:
+          BASE_PATH: /furfectstudio-web
         run: yarn build
 
       - name: Add .nojekyll file

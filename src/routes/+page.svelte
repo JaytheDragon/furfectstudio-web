@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { browser } from '$app/environment';
+	import { base } from '$app/paths';
 
 	onMount(() => {
 		if (browser) {
@@ -10,8 +11,8 @@
 			const supportedLangs = ['ko', 'en', 'ja', 'zh'];
 			const defaultLang = supportedLangs.includes(browserLang) ? browserLang : 'ko';
 			
-			// Redirect to language-specific page
-			goto(`/${defaultLang}/`, { replaceState: true });
+			// Redirect to language-specific page with proper base path
+			goto(`${base}/${defaultLang}/`, { replaceState: true });
 		}
 	});
 </script>

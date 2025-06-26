@@ -4,20 +4,24 @@
 		<meta charset="utf-8" />
 		<title>Redirecting...</title>
 		<script type="text/javascript">
-			// GitHub Pages 404 redirect for SPA routing
+			// GitHub Pages 404 redirect for SPA routing with base path
 			var l = window.location;
 			var path = l.pathname;
 			
-			// If we're at the root or a path that doesn't start with a locale,
-			// redirect to the root to let SvelteKit handle language detection
-			if (path === '/' || path === '/index.html') {
-				l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/');
+			// Extract the base path (repository name)
+			var pathSegments = path.split('/').filter(Boolean);
+			var basePath = pathSegments.length > 0 ? '/' + pathSegments[0] : '';
+			
+			// If we're at the root of the repository, redirect to the SvelteKit app
+			if (path === basePath + '/' || path === basePath) {
+				l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + basePath + '/');
 			} else {
-				// For all other paths, redirect to root with the path as a parameter
-				// This allows SvelteKit to handle the routing
+				// For all other paths, redirect with the path as a parameter
+				// Remove the base path from the current path
+				var appPath = path.replace(basePath, '');
 				l.replace(
-					l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
-					'/?p=' + path.slice(1).replace(/&/g, '~and~') +
+					l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + basePath + 
+					'/?p=' + appPath.slice(1).replace(/&/g, '~and~') +
 					(l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
 					l.hash
 				);

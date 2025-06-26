@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
+	import { base } from '$app/paths';
 </script>
 
 <div class="relative z-0 h-full w-full">
 	<img
-		src="/Background_Pattern.png"
+		src="{base}/Background_Pattern.png"
 		alt={$_('img_alt.main_background')}
 		class="fixed bottom-0 left-1/2 h-full -translate-x-1/2 transform object-cover object-bottom"
 	/>

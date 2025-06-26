@@ -4,6 +4,9 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 const SUPPORT_LOCALE = ['ko', 'en', 'ja', 'zh'];
 const PAGES = ['/', '/game', '/aboutus', '/contact', '/support'];
 
+const dev = process.argv.includes('dev');
+const base = dev ? '' : process.env.BASE_PATH || '/furfectstudio-web';
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://svelte.dev/docs/kit/integrations
@@ -20,6 +23,9 @@ const config = {
 			fallback: '404.html',
 			strict: false
 		}),
+		paths: {
+			base: base
+		},
 		prerender: {
 			entries: [
 				'/',
