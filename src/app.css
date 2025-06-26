@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+
+@theme {
+	--color-bg-main: #0b0a24;
+
+	--font-koho: 'KoHo', 'sans-serif';
+}

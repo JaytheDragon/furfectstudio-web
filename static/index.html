@@ -1,0 +1,30 @@
+<script>
+	(function (l) {
+		// 경로에 언어 코드가 없으면 브라우저 언어에 맞춰 리디렉션
+		var language = window.navigator.language.slice(0, 2); // 'ko', 'ja', 'en' 등
+		var supportedLanguages = ['ko', 'ja', 'en', 'zh']; // 지원하는 언어 목록
+		var pathSegments = l.pathname.split('/'); // 경로 파싱
+
+		if (!pathSegments[1]) {
+			// 언어가 없다면, 브라우저 언어에 맞춰 리디렉션 (기본값 'ko')
+			window.location.replace(
+				'/' + (supportedLanguages.indexOf(language) !== -1 ? language : 'ko')
+			);
+		} else if (supportedLanguages.indexOf(pathSegments[1]) === -1) {
+			// 언어가 경로에 없으면 브라우저 언어로 리디렉션
+			window.location.replace('/' + language + l.pathname);
+		}
+
+		// URL을 적절하게 처리하여 쿼리 파라미터 복원
+		if (l.search && l.search[1] === '/') {
+			var decoded = l.search
+				.slice(1)
+				.split('&')
+				.map(function (s) {
+					return s.replace(/~and~/g, '&');
+				})
+				.join('?');
+			window.history.replaceState(null, '', l.pathname.slice(0, -1) + decoded + l.hash);
+		}
+	})(window.location);
+</script>

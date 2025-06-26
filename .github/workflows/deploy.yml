@@ -1,0 +1,53 @@
+name: Deploy Vite Vue Project to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      - name: Cache Yarn dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/yarn/v6
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install dependencies
+        run: yarn install
+
+      # 3. Vite 빌드
+      - name: Build Project
+        run: |
+          yarn build
+
+      # 4. GitHub Pages 배포
+      - name: Deploy to GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT_TOKEN }} # GitHub의 토큰을 사용
+        run: |
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+          cd build
+          touch .nojekyll 
+          git init
+          git config --global init.defaultBranch main
+          git config user.name "GitHub Actions" 
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "$COMMIT_MESSAGE"
+          git branch -M main
+          git push --force "https://${{ secrets.GH_PAT_TOKEN }}@github.com/furfectstudio/furfectstudio.github.io.git" main

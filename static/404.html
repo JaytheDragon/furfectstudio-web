@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>redirect...</title>
+		<script type="text/javascript">
+			(function () {
+				const l = location,
+					s = l.pathname.slice(1).split('/');
+				if (l.search.includes('p=')) {
+					const p = new URLSearchParams(l.search).get('p');
+					if (!p || p === '/') return;
+					l.replace(
+						l.protocol +
+							'//' +
+							l.hostname +
+							(l.port ? ':' + l.port : '') +
+							'/' +
+							s.slice(0, 1).join('/') +
+							'/?p=/' +
+							p.replace(/&/g, '~and~') +
+							(l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+							l.hash
+					);
+				}
+			})();
+		</script>
+	</head>
+	<body></body>
+</html>
