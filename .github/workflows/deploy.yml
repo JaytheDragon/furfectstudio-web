@@ -30,15 +30,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'npm'
 
-      - name: Clean install dependencies
-        run: |
-          rm -rf node_modules package-lock.json
-          npm install
+      - name: Enable Yarn
+        run: corepack enable
+
+      - name: Install dependencies with Yarn
+        run: yarn install --frozen-lockfile
 
       - name: Build SvelteKit app
-        run: npm run build
+        run: yarn build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
