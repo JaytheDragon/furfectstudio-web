@@ -1,4 +1,5 @@
 import { redirect } from '@sveltejs/kit';
+import { base } from '$app/paths';
 
 export const load = ({ request }: { request: Request }) => {
 	// Get the Accept-Language header
@@ -9,6 +10,6 @@ export const load = ({ request }: { request: Request }) => {
 	const supportedLangs = ['ko', 'en', 'ja', 'zh'];
 	const defaultLang = supportedLangs.includes(browserLang) ? browserLang : 'ko';
 	
-	// Redirect to the appropriate language page (following original route structure)
-	throw redirect(302, `/${defaultLang}/`);
+	// Redirect to the appropriate language page with base path
+	throw redirect(302, `${base}/${defaultLang}/`);
 }; 
